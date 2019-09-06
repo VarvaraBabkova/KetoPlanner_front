@@ -1,0 +1,44 @@
+{
+	"recipes":[
+			{
+				"name":"Eggs and Bacon",
+				"category":"Breakfast",
+				"img":"https://s3.amazonaws.com/rtacabinet/recipes/beta/wp-content/uploads/2017/10/28151038/5.jpg",
+				"ingredients":"2 eggs, 2 slice of bacon",
+				"instructions":"In an unheated skillet, place 2 strips of bacon. Increase the heat to medium and let the bacon cook for 8 minutes, flipping halfway through. While the bacon cooks, prepare your skull eggs.\nHeat a pan over medium-high heat and add the skull egg mold. Spray the pan and mold with cooking spray and let it heat for 1 minute. Crack one egg into the eye of the mold and then crack another egg into the second eye. Season with salt & pepper and cover the pan. Let the eggs cook, covered, for 4 minutes, or until desired doneness of the egg yolk. Remove the cover, lift the mold and plate your eggs. Add the bacon to your plate for a deathly delicious breakfast.",
+				"calories": 350,
+				"fat": 28,
+				"carbohydrates": 2,
+				"protein": 21,
+				"fiber": 0,
+				"servings": 1
+			},
+			{
+				"name":"Tuna Avocado Salad",
+				"category":"Fish and Seafood",
+				"img":"https://images.eatthismuch.com/site_media/img/924619_Tahirah_Fo_Ferah_be330bb4-505c-4ea2-b074-26ad678577a2.jpg",
+				"ingredients":"1/4 avocado, 3oz tuna",
+				"instructions":"Using a fork, mash up the tuna really well until the consistency is even. Mix in the avocado until smooth. Add salt and pepper to taste. Enjoy!",
+				"calories": 124,
+				"fat": 6,
+				"carbohydrates": 4,
+				"protein": 15,
+				"fiber": 3,
+				"servings": 1
+
+			},
+			{
+				"name":"Chicken Breast with Fresh Herbs",
+				"category":"Poultry",
+				"img":"https://images.eatthismuch.com/site_media/img/287642_Mscree01_929b5714-8064-4c34-b61d-38b95a70daff.png",
+				"ingredients":"6 oz Chicken breast, 1/4 Limes, 1 1/2 tbsp Chicken broth, 1 tsp Ginger, 1/8 cup Basil, 1 tbsp Spearmint",
+				"instructions":"Heat the oil in a medium skillet over medium-high heat until simmering. Season both sides of the chicken breasts with salt and pepper, and place them skin side down in the pan. Cook, turning once, until firm to the touch, about 5-7 minutes per side. Transfer the chicken breasts to a plate. Add the lime juice to the skillet, and scrape up any browned bits that cling to the pan with a wooden spoon. Add the chicken broth and ginger, and bring to a boil. Off the heat, add the basil and mint to the pan and swirl the pan to combine. Divide the chicken between the 2 plates and spoon the herb sauce over the chicken. Serve.",
+				"calories": 432,
+				"fat": 30,
+				"carbohydrates": 4,
+				"protein": 36,
+				"fiber": 1,
+				"servings": 1
+			}
+]
+}
