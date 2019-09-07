@@ -39,6 +39,20 @@
 				"protein": 36,
 				"fiber": 1,
 				"servings": 1
+			},
+			{
+				"name":"Chicken Breast with Fresh Herbs",
+				"category":"Poultry",
+				"img":"https://photos.google.com/album/AF1QipPWhka2HIYfZGCqQQuSBu2bQreW5BNctHNq7uRK/photo/AF1QipPMcKgR9v9ucKCIf6v-MOXYtwPKnN7K1xNIeotk",
+				"ingredients":"6 oz Chicken breast, 1/4 Limes, 1 1/2 tbsp Chicken broth, 1 tsp Ginger, 1/8 cup Basil, 1 tbsp Spearmint",
+				"instructions":"Heat the oil in a medium skillet over medium-high heat until simmering. Season both sides of the chicken breasts with salt and pepper, and place them skin side down in the pan. Cook, turning once, until firm to the touch, about 5-7 minutes per side. Transfer the chicken breasts to a plate. Add the lime juice to the skillet, and scrape up any browned bits that cling to the pan with a wooden spoon. Add the chicken broth and ginger, and bring to a boil. Off the heat, add the basil and mint to the pan and swirl the pan to combine. Divide the chicken between the 2 plates and spoon the herb sauce over the chicken. Serve.",
+				"calories": 432,
+				"fat": 30,
+				"carbohydrates": 4,
+				"protein": 36,
+				"fiber": 1,
+				"servings": 1			
+		
 			}
 ]
 }

@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
 import DaysList from "./containers/DaysList"
-
-import plan from "./sample_plan.json"
-import recipes_db from "./sample_recipes.json"
+import Header from "./components/Header"
 
 import RecipesList from "./containers/RecipesList"
 
+const URL = "http://localhost:3000/"
 
 export default  class App extends React.Component {
 
@@ -21,11 +20,23 @@ export default  class App extends React.Component {
   }
 
   componentDidMount(){
+
+    
+    fetch(URL + "recipes")
+    .then(res => res.json())
+    .then(res => {
+        console.log(res)
+          this.setState({recipes: res})
+        })
+
+  fetch(URL + "mealplan")
+    .then(res => res.json())
+    .then(res => {
+        console.log(res)
+          this.setState({days: res})
+        })
+
    
-    this.setState({
-        days: plan.days, 
-        recipes: recipes_db.recipes
-      })
   }
 
   changeView = () => {
@@ -43,11 +54,12 @@ export default  class App extends React.Component {
   }
 
   handleDelete = (meal_time, day) => {
-    meal_time = meal_time.toLowerCase()
     console.log("in delete " + meal_time + " " + day)
     let arr = this.state.days.map(d => {
-                                            if (d.name === day) {
-                                              d[meal_time] = {}
+                                            if (d.days === day) {
+                                              //debugger
+                                              d.meals = d.meals.filter(m => m.name !== meal_time)
+                                              console.log(d)
                                             }
                                             return d
                                           })
@@ -57,10 +69,14 @@ export default  class App extends React.Component {
   }
 
   render(){
-    console.log(recipes_db.recipes)
+    //console.log(this.state.days)
     return (
-      <div className="App ">
+      <div className="App "> 
+
+        <Header />
         {
+
+         
           ((!this.state.show_recipes)? 
 
               <DaysList handleAdd = {this.handleAdd} 
@@ -69,7 +85,8 @@ export default  class App extends React.Component {
                         handleChangeView={this.changeView}/>
 
             :<RecipesList recipes ={this.state.recipes} 
-                            handleChangeView={this.changeView}/> 
+                            handleChangeView={this.changeView}
+                            show_recipes_add = {this.state.show_recipes_add}/> 
               
           )
         }

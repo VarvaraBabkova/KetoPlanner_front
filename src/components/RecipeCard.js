@@ -9,8 +9,13 @@ export default class RecipeCard extends React.Component{
 	}
 
 	handleClick = () => {
-		
+
+		if (this.state.chosen && this.props.show_recipes_add){
+			console.log("I m adding ")
+		}
+
 		this.setState({chosen: !this.state.chosen})
+		
 	}
 
 	render(){
