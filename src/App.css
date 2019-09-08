@@ -1,34 +1,85 @@
+:root {
+  --dark-brown-color: rgb(113, 82, 59);
+  --teal-color: rgb(161, 214, 175);
+  --light-beige-color: rgb(247, 240, 190);
+}
+
 * { margin: 0; padding: 0; }
 
 div.header {
   width: 100%;
-  height: 150px;
-    background-color: rgb(161, 214, 175);
-    margin: 0px;
+  height: 100px;
+  top: 0;
+
+    background-color: var(--teal-color);
+    border-top: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom: 10px;
+    border-color: var(--dark-brown-color);
+    border-style: solid;
+
+    position: fixed;
+    z-index: 10;
+    padding-top: 30px; 
+
+    /* background-image: url("blue-green-grunge.jpg");
+   background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;*/
+
+}
+div.header_brown {
+  width: 40%;
+  height: 60%;
+
+  background-color: var(--dark-brown-color);
+  border-color: var(--light-beige-color);
+  border-style: solid;
+  border-width: 1px;
+
+  margin: auto 20px auto 100px;
+  padding-top: 10px; 
+
+
+  font-family: "Blue Fires", Times, serif;
+  font-size: 20px;
+  text-align: center;
+  color: var(--light-beige-color);
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 div.day_card {
   margin: 5px;
-  border: 1px solid #ccc;
+  /*border: 1px solid #ccc;*/
   float: left;
 
   width: 350px;
   height: 450px;
    overflow: hidden;
-   object-fit: cover;
+   object-fit: contain;
     object-position: -50% 0;
 
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /*border-radius: 5px;*/
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 
-   background-repeat: repeat;
-    background-image: url("vintage-looking-blank.jpg");
-    background-size: 100%;
+    background-image: url("day2.png");
+   background-repeat: no-repeat;
+    /*background-size: auto;*/
+    background-size: contain;
+    background-position: center;
 
-    margin: 10px;
+    margin: 30px;
+    padding: 20px;
     position: relative;
     text-align: center;
+    opacity: 1;
+
+    font-family: "Blue Fires", Times, serif;
+  font-size: 30px;
+  text-align: center;
+  color: var(--light-beige-color);
 }
 
 div.recipe_card.chosen {
@@ -43,7 +94,7 @@ div.recipe_card {
   float: left;
   padding: 10px;
 
-  width: 450px;
+  width: 30%;
   height: 250px;
    overflow: scroll;
    object-fit: cover;
@@ -99,14 +150,21 @@ url("./bluefires_sample.otf") format("opentype"),
 }
 
 .meal_item div :hover{
-   border: 1px solid #aaa;
+   /*border: 1px solid #aaa;*/
    /*width: 100%;
   height: 50px;*/
 }
 
-.meal_item div {
-   width: 100%;
-  height: 40px;
+div.meal_item  {
+   width: 70%;
+  height: 50px;
+    margin: 20px auto 10px auto;
+  background-color: var(--light-beige-color);
+
+  font-family: "Ana's Rusty Typewriter", Times, serif;
+    text-align: center;
+    color: var(--dark-brown-color);
+    font-size: 15px;
 }
 
 .circle div {
@@ -151,6 +209,8 @@ input {
   text-align: center;
   margin: 0px;
 }
+
+
 .days_list{
   background-repeat: no-repeat;
   background-image: url("800px_COLOURBOX3796929.jpg");
@@ -164,6 +224,8 @@ input {
  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
       animation: fadein 1s;
 
+      margin-top: 140px;
+
   }
 
 .recipes_list{
@@ -176,7 +238,8 @@ input {
 
   height: 100%;
   width: 100%;
-  
+   margin-top: 140px;
+
     /*transition: transform .1s;*/
  /*transition: opacity 2s ease-in;*/
  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -197,4 +260,6 @@ input {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+
 

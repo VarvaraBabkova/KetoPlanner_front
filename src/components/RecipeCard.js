@@ -28,7 +28,7 @@ export default class RecipeCard extends React.Component{
 					<h4>
 						<img className="recipe_card_img" src={this.props.recipe.img}  alt=""/> 
 						{this.props.recipe.name} 
-					</h4>
+					</h4><br/>
 					<p>{this.props.recipe.ingredients}</p> <br/>
 					<p>{this.props.recipe.instructions}</p>
 

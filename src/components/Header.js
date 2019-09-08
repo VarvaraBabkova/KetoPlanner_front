@@ -6,10 +6,10 @@ export default class Header extends React.Component{
 		
 		 return(
 			<div className="header">
-				<div className="header">
+				
+				<div className="header_brown">
 
-
-					<h3 >Week Menu</h3>
+					<h1 >Keto Meal Planner</h1>
 				</div>
 
 			</div>
