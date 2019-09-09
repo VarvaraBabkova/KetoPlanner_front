@@ -39,6 +39,8 @@ export default  class App extends React.Component {
           console.log(res)
             this.setState({days: res})
           })
+
+   
   }
 
 
@@ -46,10 +48,24 @@ export default  class App extends React.Component {
     this.setState({menu: menu}, console.log(this.state.menu))
   }
 
+  fetch_post(mealplan_id, recipe_id){
+    fetch(URL + "meals", {
+            method: 'POST', 
+            body: JSON.stringify({
+              mealplan_id: mealplan_id,
+              recipe_id: recipe_id 
+
+            }), 
+            headers:{
+              'Content-Type': 'application/json'
+            }
+          }).then(res => res.json())
+          .then(response => console.log('Success:', JSON.stringify(response)))
+          .catch(error => console.error('Error:', error));
+  }
 
   handleAdd = ( day) =>{
-    // meal_time = meal_time.toLowerCase()
-    //console.log(this.state.edit_day)  
+    
 
     if (!this.state.show_recipes_add){
         this.setState({menu: "Recipes", show_recipes_add: true})
@@ -65,25 +81,40 @@ export default  class App extends React.Component {
           adding_day[0].meals.push({"name":"Meal", "recipe":chosen_recipes[i]})
             console.log(adding_day[0].id)
             console.log(chosen_recipes[i].id)
-            
+
+            this.fetch_post(adding_day[0].id, chosen_recipes[i].id)
+
         }
         let unchosen_recipes = this.state.recipes.map(res => {res.chosen = false; return res})   
         this.setState({menu: "Home", show_recipes_add: false, days:arr, recipes: unchosen_recipes})
 
-    }
+        
+
+        }
+  }
+
+  fetch_delete(meal_id) {
+    console.log(meal_id)
+    fetch(URL + `meals/${meal_id}`, {
+            method: 'DELETE', 
+            headers:{
+              'Content-Type': 'application/json'
+            }
+          }).then(res => res.json())
+          .then(response => console.log('Success:', JSON.stringify(response)))
+          .catch(error => console.error('Error:', error));
   }
 
   handleDelete = (recipe, id, day) => {
-    // console.log(day)
-    // console.log(id)
-    // console.log(recipe)
-
-
+   
     let arr = this.state.days.map(d => {
                                           if (d.days === day) {
+                                             let meal_id =  d.meals.find((m, index)=> id === index)
                                               d.meals = d.meals.filter((m, index)=> id !== index)
-                                              // console.log("after deleted")
-                                              // console.log(d)
+                                             
+                                              this.fetch_delete(meal_id.id)
+                                              
+
                                             }
                                             return d
                                           })
