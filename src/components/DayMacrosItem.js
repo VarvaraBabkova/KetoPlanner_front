@@ -25,7 +25,7 @@ export default class DayMacrosItem extends React.Component{
 		let calories_sum = this.macros(breakfast, "calories") + this.macros(lunch, "calories") + 
 					this.macros(dinner, "calories") + this.macros(snack, "calories") + this.macros(dessert, "calories")
 
-		console.log(calories_sum)
+		//console.log(calories_sum)
 
 		let carbs_sum = this.macros(breakfast, "carbohydrates") + this.macros(lunch, "carbohydrates") + 
 					this.macros(dinner, "carbohydrates") + this.macros(snack, "carbohydrates") 

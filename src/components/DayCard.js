@@ -6,19 +6,25 @@ export default class DayCard extends React.Component{
 
 
 	render(){
-	//	console.log("inside card")
-	//console.log(this.props.day)
+	//console.log("inside card " + this.props.day.days)
+	//console.log(this.props.day.meals)
 		return(
-			<div className="day_card">
+			<div className={"day_card " + this.props.day.days}>
 				<h4>{this.props.day.days}</h4>
 
 				{
-					this.props.day.meals.map(meal => <MealItem key={meal.name} handleAdd = {this.props.handleAdd} 
-							handleDelete={this.props.handleDelete} 
-							meal_time = {meal.name} meal={meal.recipe} 
-							day={this.props.day.days} img_side={true}/>)
+					this.props.day.meals.map((meal, index) =>
+					 <MealItem key={index} 
+					 			handleAdd = {this.props.handleAdd} 
+								handleDelete={this.props.handleDelete} 
+								meal_time = {meal.name} 
+								meal={meal.recipe} 
+								meal_id = {index}
+								day={this.props.day.days} 
+					/>)
+					
 				}
-				
+				<div className="add_item_btn" onClick = {() => this.props.handleAdd(this.props.day.days)}>Add</div>
 
 				 {//<DayMacrosItem meals = {this.props.day}/>
 				}
@@ -28,22 +34,3 @@ export default class DayCard extends React.Component{
 
 }
 
-{/*
-	<MealItem handleAdd = {this.props.handleAdd} 
-							handleDelete={this.props.handleDelete} 
-							meal_time = "Lunch" meal={this.props.day.lunch} 
-							day={this.props.day.name} img_side={false}/>
-				<MealItem handleAdd = {this.props.handleAdd} 
-							handleDelete={this.props.handleDelete} 
-							meal_time = "Dinner" meal={this.props.day.dinner} 
-							day={this.props.day.name} img_side={true}/>
-				<MealItem handleAdd = {this.props.handleAdd} 
-							handleDelete={this.props.handleDelete} 
-							meal_time = "Snack" meal={this.props.day.snack} 
-							day={this.props.day.name} img_side={false}/>
-				<MealItem handleAdd = {this.props.handleAdd} 
-							handleDelete={this.props.handleDelete} 
-							meal_time = "Dessert" meal={this.props.day.dessert} 
-							day={this.props.day.name} img_side={true}/>
-							*/
-}

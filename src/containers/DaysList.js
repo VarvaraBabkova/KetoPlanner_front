@@ -9,15 +9,18 @@ export default class DayList extends React.Component{
 		 return(
 			<div className="days_list clearfix">
 				
-				<input className="box_btn" type="image" src={require('../RecipesBox.png')} onClick={this.props.handleChangeView} />
 				{
 					this.props.days.map(day => <DayCard handleAdd = {this.props.handleAdd} 
 														handleDelete={this.props.handleDelete} 
 														key = {day.days} 
-														day = {day}/>)
+														day = {day}
+														day_card_renew = {this.props.day_card_renew}/>)
 				}
+				<div className="day_list_girl"></div>
 			</div>
 		)
 	}
 
 }
+
+//				<input className="box_btn" type="image" src={require('../RecipesBox.png')} onClick={this.props.handleChangeView} />
