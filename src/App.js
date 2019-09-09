@@ -21,17 +21,28 @@ export default  class App extends React.Component {
         menu: "Home",
         edit_day:"",
         day_card_renew:0,
+        username:"",
+        password:"",
+
       }
   }
 
-  componentDidMount(){    
-    fetch(URL + "recipes")
-    .then(res => res.json())
-    .then(res => {
-        console.log(res)
-          res.map (r => r.chosen = false)
-          this.setState({recipes: res})
-        })
+  componentDidMount(){ 
+
+    if (this.state.username !== "") {
+      //console.log()
+       fetch(URL + "recipes", {
+                  method: "GET",
+                  headers:{
+                    Authorization: `Bearer ${localStorage.token}`
+                  }
+                })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+              res.map (r => r.chosen = false)
+              this.setState({recipes: res})
+            })
 
     fetch(URL + "mealplan")
       .then(res => res.json())
@@ -39,6 +50,10 @@ export default  class App extends React.Component {
           console.log(res)
             this.setState({days: res})
           })
+    }  else{
+
+    }
+   
 
    
   }
@@ -57,7 +72,8 @@ export default  class App extends React.Component {
 
             }), 
             headers:{
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+               Authorization: `Bearer ${localStorage.token}`
             }
           }).then(res => res.json())
           .then(response => console.log('Success:', JSON.stringify(response)))
@@ -98,7 +114,8 @@ export default  class App extends React.Component {
     fetch(URL + `meals/${meal_id}`, {
             method: 'DELETE', 
             headers:{
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.token}`
             }
           }).then(res => res.json())
           .then(response => console.log('Success:', JSON.stringify(response)))
@@ -130,6 +147,69 @@ export default  class App extends React.Component {
     this.setState({recipes: arr})
   }
 
+  handleLogin = (login) =>{
+    console.log(login.username)
+    console.log(login.password)
+
+    this.setState({username:login.username, password:login.password})
+
+    // fetch('http://localhost:3000/create-account', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content_Type': 'application/json'
+    //         }, 
+    //         body: JSON.stringify({
+    //             username: login.username,
+    //             password: login.password
+    //         })
+    //     })
+    //     .then(res => console.log(res))
+
+    fetch('http://localhost:3000/users/authenticate', {
+          method: 'POST',
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: login.username,
+            password: login.password
+          })
+        })
+        .then(res => res.json())
+        .then(data => {
+            localStorage.token = data.token
+            console.log(data.token)
+            
+            fetch(URL + "recipes", {
+                  method: "GET",
+                  headers:{
+                    Authorization: `Bearer ${localStorage.token}`
+                  }
+                })
+              .then(res => res.json())
+              .then(res => {
+                  console.log(res)
+                    res.map (r => r.chosen = false)
+                    this.setState({recipes: res})
+                  })
+
+              fetch(URL + "mealplan", {
+                  method: "GET",
+                  headers:{
+                    Authorization: `Bearer ${localStorage.token}`
+                  }
+                })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                      this.setState({days: res})
+                    })
+
+
+        })
+
+  }
+
   current_menu(){
     switch (this.state.menu){
 
@@ -148,7 +228,6 @@ export default  class App extends React.Component {
       case "Products":
           return <Products days = {this.state.days}/>
       case "About":
-      console.log("in switch about")
           return <About />
       default:
         return <DaysList handleAdd = {this.handleAdd} 
@@ -165,7 +244,7 @@ export default  class App extends React.Component {
     return (
       <div className="App "> 
 
-        <Header changeView = {this.changeView}/>
+        <Header changeView = {this.changeView} handleLogin = {this.handleLogin}/>
         {
 
           this.current_menu()
