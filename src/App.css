@@ -41,13 +41,14 @@ div.header {
 div.doily{
    background-image: url("doily.png");
    background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
     background-position: center;
     z-index: 10;
-    width: 350px;
-  height: 350px;
-  top: -200px;
-  position: absolute;
+    width: 600px;
+  height: 610px;
+  top: -450px;
+  left: -100px;
+  position: fixed;
 }
 
 div.login_form {
@@ -58,11 +59,18 @@ div.login_form {
   padding: 10px;
   position: absolute;
   background-color: var(--light-red-color);
+  /*background-image: url("login.png");*/
+   background-repeat: no-repeat;
+        background-size: contain;
+    background-position: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 div.header_brown {
   width: 40%;
-  height: 60%;
+  height: 8%;
+  position: fixed;
 
   background-color: var(--dark-brown-color);
   border-color: var(--light-beige-color);
@@ -77,16 +85,17 @@ div.header_brown {
   font-size: 20px;
   text-align: center;
   color: var(--light-beige-color);
+   text-shadow: 2px 2px 3px var(--dark-brown-color); 
 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  z-index: 200 !important;
+  z-index: 120;
 }
 
 div.menu{
  width: 150px;
   height: 50px;
   top: -10px;
-  position: absolute;
+  position: fixed;
 
 font-family: "Blue Fires", Times, serif;
   font-size: 20px;
@@ -229,7 +238,7 @@ div.meal_text {
   /*background-blend-mode: lighten;*/
   background-color: rgb( 0, 0, 0);
 
-  height: 100%;
+  height: 1070px;
   width: 100%;
  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
       animation: fadein 1s;
@@ -256,21 +265,24 @@ div.meal_text {
 .add_item_btn {
   display: none;
   position: fixed;
-  bottom: 20px;
-  left:45%;
+  top: 20px;
+  left:80%;
   z-index: 100;
 
    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
       animation: fadein 1s;
 
-  /*background-image: url("add_btn.png");*/
+  background-image: url("round_add_btn.png");
    background-size: contain;
     background-position: center;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 50%;
     font-size: 20px;
-  width:25px;
-  height: 25px;
+  width:35px;
+  height: 35px;
   
 }
+
 .delete_item_btn {
   display: none;
    position: fixed;
@@ -295,7 +307,7 @@ div.day_list_girl{
   background-image: url("RetroSombrero.png");
    background-size: contain;
     background-position: center;
-      background-repeat: no-repeat;
+    background-repeat: no-repeat;
 
 
     height: 400px;
@@ -304,12 +316,28 @@ div.day_list_girl{
     margin-right: 0px;
     padding-right: 0px;
 
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 30%;
    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-      animation: fadein 1s;
+  animation: fadein 1s;
+  transform: translate3d(20px, 0, 0);
+  transition: transform 1.1s cubic-bezier(0, .52, 0, 1)
 }
+
+div.invisible{
+    transform: translate3d(340px, 0, 0);
+  /*transition: transform .9s cubic-bezier(0, .52, 0, 1)*/
+
+}
+
+.macros_div {
+  font-size: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+}
+
 
 /******************************************************************************************************/
 /*******************************************  RECIPES  **************************************************/
@@ -352,18 +380,44 @@ div.recipe_card {
 
 }
 
-.recipe_card_img {
+div.recipe_card .recipe_card_img {
   width: 80px;
   height: 70px;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+
+    border-radius: 5px;
+    border-color: var(--light-beige-color);
+    border-width: 2px;
+    transform: rotate(-5deg)
+
 } 
 
 
-.recipe_card h4{
+div.recipe_card h4{
     font-family: "Blue Fires", Times, serif;
     font-size: 20px;
+     width: 80%;
+  height: 70px;
+  position: absolute;
+  left: 20%;
+  top: 20px;
 
 }
 
+div.recipe_card p{
+    font-family: "Ana's Rusty Typewriter", Times, serif;
+    text-align: center;
+    font-size: 15px;
+     width: 100%;
+  height: 80%;
+  position: absolute;
+
+  left: 0;
+  top: 35%;
+
+}
 
 .recipes_list{
   background-repeat: repeat;
@@ -556,10 +610,6 @@ url("./bluefires_sample.otf") format("opentype"),
 }
 
 
-
-.macros_div {
-  font-size: 10px;
-}
 
 
 

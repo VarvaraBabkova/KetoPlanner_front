@@ -39,7 +39,7 @@ export default  class App extends React.Component {
                 })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
+           // console.log(res)
               res.map (r => r.chosen = false)
               this.setState({recipes: res})
             })
@@ -47,7 +47,7 @@ export default  class App extends React.Component {
     fetch(URL + "mealplan")
       .then(res => res.json())
       .then(res => {
-          console.log(res)
+          //console.log(res)
             this.setState({days: res})
           })
     }  else{
@@ -76,7 +76,7 @@ export default  class App extends React.Component {
                Authorization: `Bearer ${localStorage.token}`
             }
           }).then(res => res.json())
-          .then(response => console.log('Success:', JSON.stringify(response)))
+          .then(response => console.log('Success:'))
           .catch(error => console.error('Error:', error));
   }
 
@@ -95,8 +95,8 @@ export default  class App extends React.Component {
         
         for (var i = 0; i < chosen_recipes.length; i++) {
           adding_day[0].meals.push({"name":"Meal", "recipe":chosen_recipes[i]})
-            console.log(adding_day[0].id)
-            console.log(chosen_recipes[i].id)
+            // console.log(adding_day[0].id)
+            // console.log(chosen_recipes[i].id)
 
             this.fetch_post(adding_day[0].id, chosen_recipes[i].id)
 
@@ -118,7 +118,7 @@ export default  class App extends React.Component {
               Authorization: `Bearer ${localStorage.token}`
             }
           }).then(res => res.json())
-          .then(response => console.log('Success:', JSON.stringify(response)))
+          .then(response => console.log('Success:'))
           .catch(error => console.error('Error:', error));
   }
 

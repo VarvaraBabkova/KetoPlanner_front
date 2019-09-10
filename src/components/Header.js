@@ -7,8 +7,8 @@ export default class Header extends React.Component{
     super(props);
 
     this.state = {
-      username:"",
-      password:""
+      username:"Varvara",
+      password:"123456"
     };
   }
 
@@ -38,9 +38,10 @@ preHandle = (e) =>{
 		 return(
 		 	<div>
 	 	{
-	 		// <div className="doily"></div>
+	 		
 	 	}
 				<div className="header">
+				 <div className="doily"></div>
 					<div className="login_form">
 						<form onSubmit={e => this.preHandle(e)}>
 					        <div>

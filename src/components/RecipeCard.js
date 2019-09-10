@@ -10,9 +10,6 @@ export default class RecipeCard extends React.Component{
 
 	handleClick = () => {
 
-		// if (this.state.chosen && this.props.show_recipes_add){
-		// 	console.log("I m adding ")
-		// }
 
 		if (this.props.show_recipes_add){
 			this.setState({chosen: !this.state.chosen})
@@ -33,6 +30,7 @@ export default class RecipeCard extends React.Component{
 						<img className="recipe_card_img" src={this.props.recipe.img}  alt=""/> 
 						{this.props.recipe.name} 
 					</h4><br/>
+
 					<p>{this.props.recipe.ingredients}</p> <br/>
 					<p>{this.props.recipe.instructions}</p>
 
@@ -42,3 +40,4 @@ export default class RecipeCard extends React.Component{
 	}
 
 }
+
