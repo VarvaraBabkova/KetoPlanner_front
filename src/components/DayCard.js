@@ -5,11 +5,13 @@ import DayMacrosItem from "./DayMacrosItem"
 export default class DayCard extends React.Component{
 
 
+
+
 	render(){
 	//console.log("inside card " + this.props.day.days)
 	//console.log(this.props.day.meals)
 		return(
-			<div className={"day_card " + this.props.day.days}>
+			<div className={"day_card " + this.props.day.days} >
 				<h4>{this.props.day.days}</h4>
 
 				{
@@ -24,10 +26,11 @@ export default class DayCard extends React.Component{
 					/>)
 					
 				}
-				<div className="add_item_btn" onClick = {() => this.props.handleAdd(this.props.day.days)}>Add</div>
+				<div className="add_item_btn" onClick = {() => this.props.handleAdd(this.props.day.days)}></div>
 
-				 {//<DayMacrosItem meals = {this.props.day}/>
-				}
+				 {
+				 	<DayMacrosItem meals = {this.props.day.meals}/>
+				 }
 			</div>
 		)
 	}
