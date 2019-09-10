@@ -5,6 +5,8 @@
   --dark-red-color: rgb(210, 99, 54);
   --light-red-color: rgb(224, 143, 65);
   --lighter-beige-color: rgb(240, 230, 210);
+  --coral-color: rgb(212, 90, 85);
+  --green-color: rgb(139, 135, 88);
 
 
 }
@@ -422,6 +424,17 @@ div.recipe_card h4{
 
 }
 
+div.recipe_card .recipe_card_macros{
+    font-family: "Blue Fires", Times, serif;
+    font-size: 13px;
+     width: 80%;
+  height: 70px;
+  position: absolute;
+  left: 20%;
+  top: 50px;
+
+}
+
 div.recipe_card .recipe_card_text{
     font-family: "Ana's Rusty Typewriter", Times, serif;
     text-align: center;
@@ -586,7 +599,7 @@ div.product_list{
     width: 100%;
 }
 div.product_list li{
-  list-style-type: "cicle";
+  list-style-type: square;
     font-family: "Ana's Rusty Typewriter", Times, serif;
     font-size: 20px;
 }
@@ -594,6 +607,13 @@ div.product_list h4{
   text-align: center;
   font-family: "Blue Fires", Times, serif;
     font-size: 30px;
+    color: var(--green-color);
+  text-shadow: 2px 2px 3px var(--dark-brown-color); 
+
+}
+div.product_list b{
+  color: var(--coral-color);
+  text-shadow: 2px 2px 3px var(--dark-brown-color); 
 
 }
 /******************************************************************************************************/
@@ -617,6 +637,20 @@ div.about{
       animation: fadein 1s;
 }
 
+div.about p{
+
+   font-family: "Ana's Rusty Typewriter", Times, serif;
+    font-size: 16px;
+}
+
+div.about p b{
+
+  font-family: "Blue Fires", Times, serif;
+  color: var(--coral-color);
+  text-shadow: 2px 2px 3px var(--dark-brown-color); 
+    font-size: 25px;
+}
+
 div.old_paper {
   background-repeat: no-repeat;
   background-image: url("old-paper.jpg");
@@ -624,7 +658,7 @@ div.old_paper {
   background-size: cover; 
   /*background-blend-mode: lighten;*/
   background-color: rgb( 0, 0, 0);
-overflow: hidden;
+overflow: scroll;
 
   height: 90%;
   width: 80%;

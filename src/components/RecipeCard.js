@@ -32,6 +32,10 @@ export default class RecipeCard extends React.Component{
 						
 						{this.props.recipe.name} 
 					</h4><br/>
+					<div className = "recipe_card_macros">
+						<p>Calories: {this.props.recipe.calories}</p> 
+						<p>Carbohydrates: {this.props.recipe.carbohydrates}</p>
+					</div>
 					<div className = "recipe_card_text">
 						<p>{this.props.recipe.ingredients}</p> <br/>
 						<p>{this.props.recipe.instructions}</p>
