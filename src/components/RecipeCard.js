@@ -26,14 +26,16 @@ export default class RecipeCard extends React.Component{
 		return(
 			<div className={"recipe_card " + ch_str} onClick={this.handleClick}>
 				<div className="recipe_card_img_bk">
+				<img className="recipe_card_img" src={this.props.recipe.img}  alt=""/> 
+				<img className="paper_clip" src= "paper_clip.png" alt= ""/>
 					<h4>
-						<img className="recipe_card_img" src={this.props.recipe.img}  alt=""/> 
+						
 						{this.props.recipe.name} 
 					</h4><br/>
-
-					<p>{this.props.recipe.ingredients}</p> <br/>
-					<p>{this.props.recipe.instructions}</p>
-
+					<div className = "recipe_card_text">
+						<p>{this.props.recipe.ingredients}</p> <br/>
+						<p>{this.props.recipe.instructions}</p>
+					</div>
 				</div>
 			</div>
 		)

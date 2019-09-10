@@ -3,7 +3,9 @@
   --teal-color: rgb(161, 214, 175);
   --light-beige-color: rgb(247, 240, 190);
   --dark-red-color: rgb(210, 99, 54);
-    --light-red-color: rgb(224, 143, 65);
+  --light-red-color: rgb(224, 143, 65);
+  --lighter-beige-color: rgb(240, 230, 210);
+
 
 }
 
@@ -354,7 +356,7 @@ div.recipe_card {
   margin: 5px;
   border: 1px solid #ccc;
   float: left;
-  padding: 10px;
+  padding: 0px;
 
   width: 30%;
   height: 250px;
@@ -384,16 +386,30 @@ div.recipe_card .recipe_card_img {
   width: 80px;
   height: 70px;
   position: absolute;
-  left: 10px;
-  top: 5px;
+  left: 10%;
+  top: 3%;
+  margin-top: 0px;
 
     border-radius: 5px;
-    border-color: var(--light-beige-color);
-    border-width: 2px;
-    transform: rotate(-5deg)
+    /*border-color: var(--light-beige-color);*/
+    border: 3px solid var(--lighter-beige-color);
+    transform: rotate(-5deg);
+    /*z-index: 40;*/
 
 } 
 
+div.recipe_card .paper_clip{
+  width: 80px;
+  height: 70px;
+  position: absolute;
+  left: 1%;
+  top: -8px;
+  margin-top: 0px;
+  /*z-index: 50;*/
+  background-repeat: no-repeat;
+    background-image: url("paper_clip1.png");
+    background-size: 100% 100%;
+}
 
 div.recipe_card h4{
     font-family: "Blue Fires", Times, serif;
@@ -406,16 +422,17 @@ div.recipe_card h4{
 
 }
 
-div.recipe_card p{
+div.recipe_card .recipe_card_text{
     font-family: "Ana's Rusty Typewriter", Times, serif;
     text-align: center;
     font-size: 15px;
      width: 100%;
-  height: 80%;
+  height: 60%;
   position: absolute;
 
   left: 0;
-  top: 35%;
+  top: 40%;
+  overflow-y: scroll;
 
 }
 
@@ -427,7 +444,7 @@ div.recipe_card p{
   /*background-blend-mode: lighten;*/
   background-color: rgb( 0, 0, 0);
 
-  height: 2000px;
+  height: 1200px;
   width: 100%;
    margin-top: 140px;
 
@@ -446,6 +463,61 @@ div.recipe_card p{
   right: 10px;
   top: 80px;
   z-index: 100;
+}
+
+div.recipes_list .filter_menu{
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  right: 0px;
+  top: 0;
+}
+
+
+div.filter_menu .filter_icon {
+    background-repeat: no-repeat;
+    background-size: contain; 
+    position: fixed;
+    right: 0px;
+    z-index: 100;
+    height: 70px;
+    width: 70px;
+    transform: translate3d(5px, 0, 0);
+    transition: transform 1.1s cubic-bezier(0, .52, 0, 1);
+}
+
+div.filter_menu .invisible{
+    transform: translate3d(70px, 0, 0);
+    transition: transform 1.1s cubic-bezier(0, .52, 0, 1);
+
+}
+
+.filter {
+    background-image: url("filter_icon.png");
+    top: 20%;
+}
+
+.filter_menu .all{
+    background-image: url("all_icon.png");
+    top: 40%;
+}
+
+.filter_menu .meat{
+    background-image: url("meat_icon.png");
+    top: 50%;
+}
+.filter_menu .chicken{
+    background-image: url("chicken_icon.png");
+      top: 60%;
+}
+.filter_menu  .fish{
+    background-image: url("fish_icon.png");
+    top: 70%;
+}
+
+.filter_menu  .dessert{
+    background-image: url("dessert_icon.png");
+    top: 80%;
 }
 /******************************************************************************************************/
 /****************************************** PRODUCTS     ***********************************************/
@@ -489,28 +561,20 @@ div.product_girl {
 
 div.product_list_bk {
   background-repeat: no-repeat;
-  /*background-image: url("notebook-page.png");*/
   background-image: url("vintage-recipe-cards_115616.jpg");
   background-size: 100%;
   background-size: fit; 
 
   
-padding: 30px;
-   /*object-fit: cover;*/
-    /*object-position: -50% 0;*/
-
+  padding: 30px;
+   
   border-radius: 10px;
-  /*background-blend-mode: lighten;*/
 
   height: 100%;
   width: 60%;
   left:30%;
-   /*margin-top: 140px;*/
-  /* margin-left: auto;
-      margin-right: auto;*/
-      /*padding: 30px;*/
+  
    position: absolute;
-   /*z-index: 10;*/
    text-align: left;
 
 }
@@ -523,6 +587,8 @@ div.product_list{
 }
 div.product_list li{
   list-style-type: "cicle";
+    font-family: "Ana's Rusty Typewriter", Times, serif;
+    font-size: 20px;
 }
 div.product_list h4{
   text-align: center;
