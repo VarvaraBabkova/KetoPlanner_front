@@ -12,8 +12,8 @@ export default class RecipeCard extends React.Component{
 
 
 		if (this.props.show_recipes_add){
-			console.log(this.props.limit_for_today)
-			console.log(this.props.already_chosen)
+			// console.log(this.props.limit_for_today)
+			// console.log(this.props.already_chosen)
 
 			if (this.props.limit_for_today <= this.props.already_chosen) 
 				{
@@ -31,10 +31,15 @@ export default class RecipeCard extends React.Component{
 	render(){
 		//console.log("in recipe card" )
 		// console.log( this.props)
-		let ch_str = this.state.chosen ? "chosen":""
+		let ch_str = this.state.chosen ? "chosen":"";
+		if (this.props.am_i_showing_in_daylist)
+			ch_str += " center"
+
 		return(
 			<div className={"recipe_card " + ch_str} onClick={this.handleClick}>
 				<div className="recipe_card_img_bk">
+				{(this.props.am_i_showing_in_daylist)?
+					<p className = "recipe_close_btn" onClick={this.props.handleClose}>Close</p>: console.log}
 				<img className="recipe_card_img" src={this.props.recipe.img}  alt=""/> 
 				<img className="paper_clip" src= "paper_clip.png" alt= ""/>
 					<h4>

@@ -111,14 +111,14 @@ export default  class App extends React.Component {
 
             this.fetch_post(adding_day[0], chosen_recipes[i])
             .then(new_mealplan => {
-                                  console.log(new_mealplan);
+                                  //console.log(new_mealplan);
                                   adding_day[0] = new_mealplan
                                   
                                   let unchosen_recipes = this.state.recipes.map(res => {res.chosen = false; return res})   
                                   arr.map(day => (day.days === this.state.edit_day)? day = adding_day: day)
 
                                   this.setState({menu: "Home", show_recipes_add: false, days:arr, recipes: unchosen_recipes,day_card_renew: this.state.day_card_renew+1}, 
-                                    console.log(this.state.days))
+                                   /*console.log(this.state.days)*/)
                                     return new_mealplan
                               })
         }
@@ -126,7 +126,7 @@ export default  class App extends React.Component {
   }
 
   fetch_delete(meal_id) {
-    console.log("in delete meal_id " + meal_id)
+    //console.log("in delete meal_id " + meal_id)
     fetch(URL + `meals/${meal_id}`, {
             method: 'DELETE', 
             headers:{
@@ -138,13 +138,14 @@ export default  class App extends React.Component {
           .catch(error => console.error('Error:', error));
   }
 
-  handleDelete = (recipe, id, day) => {
-   
+  handleDelete = (e, recipe, id, day) => {
+   console.log(e)
+   e.stopPropagation()
     let arr = this.state.days.map(d => {  //walking through days
                                           if (d.days === day) { //found name of the day
                                              let meal_id =  d.meals.find((m, index)=> id === index) //found exact meal s id
                                               d.meals = d.meals.filter((m, index)=> id !== index) //filtered out yhis exact meal from FE arr
-                                             console.log(meal_id)
+                                             //console.log(meal_id)
                                               this.fetch_delete(meal_id.id) //deleting this id from BE
                                               
 
@@ -164,8 +165,8 @@ export default  class App extends React.Component {
   }
 
   handleLogin = (login) =>{
-    console.log(login.username)
-    console.log(login.password)
+    // console.log(login.username)
+    // console.log(login.password)
 
     this.setState({username:login.username, password:login.password})
 
@@ -194,7 +195,7 @@ export default  class App extends React.Component {
         .then(res => res.json())
         .then(data => {
             localStorage.token = data.token
-            console.log(data.token)
+           // console.log(data.token)
             
             fetch(URL + "recipes", {
                   method: "GET",
@@ -204,7 +205,7 @@ export default  class App extends React.Component {
                 })
               .then(res => res.json())
               .then(res => {
-                  console.log(res)
+                  //console.log(res)
                     res.map (r => r.chosen = false)
                     this.setState({recipes: res})
                   })
@@ -217,7 +218,7 @@ export default  class App extends React.Component {
                 })
                 .then(res => res.json())
                 .then(res => {
-                    console.log(res)
+                   // console.log(res)
                       this.setState({days: res})
                     })
 
