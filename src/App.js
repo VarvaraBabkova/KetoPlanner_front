@@ -14,7 +14,7 @@ export default  class App extends React.Component {
   constructor(){
     super()
     this.state = {
-        days: [],
+        days: [],  //our untauchable array
         recipes: [],
         show_recipes: false,
         show_recipes_add: false,
@@ -64,12 +64,13 @@ export default  class App extends React.Component {
     this.setState({menu: menu}, console.log(this.state.menu))
   }
 
-  fetch_post(mealplan_id, recipe_id){
-    fetch(URL + "meals", {
+  fetch_post(mealplan, recipe){
+    // let new_meal = {}
+    return fetch(URL + "meals", {
             method: 'POST', 
             body: JSON.stringify({
-              mealplan_id: mealplan_id,
-              recipe_id: recipe_id 
+              mealplan_id: mealplan.id,
+              recipe_id: recipe.id 
 
             }), 
             headers:{
@@ -77,7 +78,12 @@ export default  class App extends React.Component {
                Authorization: `Bearer ${localStorage.token}`
             }
           }).then(res => res.json())
-          .then(response => console.log('Success:'))
+          .then(response => {
+
+                  mealplan.meals.push({"id":response.id, "name":"Meal", "recipe":recipe});
+                  console.log(mealplan)
+                  return mealplan
+                })
           .catch(error => console.error('Error:', error));
   }
 
@@ -98,15 +104,28 @@ export default  class App extends React.Component {
 
         
         for (var i = 0; i < chosen_recipes.length; i++) {
-          adding_day[0].meals.push({"name":"Meal", "recipe":chosen_recipes[i]})
             // console.log(adding_day[0].id)
             // console.log(chosen_recipes[i].id)
 
-            this.fetch_post(adding_day[0].id, chosen_recipes[i].id)
+            //adding_day[0].meals.push({ "name":"Meal", "recipe":chosen_recipes[i]})
+
+            this.fetch_post(adding_day[0], chosen_recipes[i])
+            .then(new_mealplan => {
+                                  console.log(new_mealplan);
+                                  adding_day[0] = new_mealplan
+                                  
+                                  let unchosen_recipes = this.state.recipes.map(res => {res.chosen = false; return res})   
+                                  arr.map(day => (day.days === this.state.edit_day)? day = adding_day: day)
+
+                                  this.setState({menu: "Home", show_recipes_add: false, days:arr, recipes: unchosen_recipes,day_card_renew: this.state.day_card_renew+1}, 
+                                    console.log(this.state.days))
+                                    return new_mealplan
+                              })
+            
+
 
         }
-        let unchosen_recipes = this.state.recipes.map(res => {res.chosen = false; return res})   
-        this.setState({menu: "Home", show_recipes_add: false, days:arr, recipes: unchosen_recipes})
+        
 
         
 
@@ -114,7 +133,7 @@ export default  class App extends React.Component {
   }
 
   fetch_delete(meal_id) {
-    console.log(meal_id)
+    console.log("in delete meal_id " + meal_id)
     fetch(URL + `meals/${meal_id}`, {
             method: 'DELETE', 
             headers:{
@@ -128,12 +147,12 @@ export default  class App extends React.Component {
 
   handleDelete = (recipe, id, day) => {
    
-    let arr = this.state.days.map(d => {
-                                          if (d.days === day) {
-                                             let meal_id =  d.meals.find((m, index)=> id === index)
-                                              d.meals = d.meals.filter((m, index)=> id !== index)
-                                             
-                                              this.fetch_delete(meal_id.id)
+    let arr = this.state.days.map(d => {  //walking through days
+                                          if (d.days === day) { //found name of the day
+                                             let meal_id =  d.meals.find((m, index)=> id === index) //found exact meal s id
+                                              d.meals = d.meals.filter((m, index)=> id !== index) //filtered out yhis exact meal from FE arr
+                                             console.log(meal_id)
+                                              this.fetch_delete(meal_id.id) //deleting this id from BE
                                               
 
                                             }
