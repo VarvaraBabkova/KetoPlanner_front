@@ -412,6 +412,24 @@ div.recipe_card {
 
 }
 
+div.center{
+  position: fixed;
+  right: 35%;
+  top:40%;
+   animation:showup 2s;
+   animation-iteration-count: 1;
+}
+@keyframes showup{
+    0%{     top: 100%;   }
+    50%{    top:35%;}
+    100%{  top:40%;    }
+}
+
+p.recipe_close_btn{
+  float: right;
+  color: var(--coral-color);
+}
+
 div.recipe_card .recipe_card_img {
   width: 80px;
   height: 70px;

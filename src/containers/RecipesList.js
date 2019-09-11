@@ -20,7 +20,7 @@ export default class RecipesList extends React.Component{
 
 	}
 	handleFilter = (type) =>{
-		console.log(type)
+		//console.log(type)
 		if(type === "all"){
 			this.setState({recipes: this.props.recipes})
 		}else {
@@ -32,11 +32,11 @@ export default class RecipesList extends React.Component{
 		this.setState({recipes: this.props.recipes})
 	}
 	handleFilterHover = () => {
-		console.log("in hover")
+		//console.log("in hover")
 		this.setState({filter_menu:true})
 	}
 	handleFilterUnhover = () => {
-		console.log("in unhover")
+		//console.log("in unhover")
 		this.setState({filter_menu:false})
 
 	}
@@ -73,7 +73,9 @@ export default class RecipesList extends React.Component{
 																show_recipes_add = {this.props.show_recipes_add}
 																handleChosen = {this.handleChosen}
 																limit_for_today = {this.props.limit_for_today}
-																already_chosen={this.props.recipes.filter(r => r.chosen === true).length}/>)
+																already_chosen={this.props.recipes.filter(r => r.chosen === true).length}
+																am_i_showing_in_daylist = {false}
+																/>)
 				}
 				
 			</div>
