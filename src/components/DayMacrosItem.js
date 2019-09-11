@@ -44,8 +44,9 @@ export default class DayMacrosItem extends React.Component{
 	render(){
 		// console.log("in macros card" )
 		// console.log( this.props.meals)
+		let colorClass = `macros_div ${(this.calculate().carbs_sum >= 20)? "red":"ok"}`
 		 return(
-			<div className="macros_div">
+			<div className={colorClass}>
 				<div className="">
 					<p> Total Calories : {this.calculate().calories_sum}  Total Carbs : {this.calculate().carbs_sum} </p>
 					<p> Total Proteins : {this.calculate().proteins_sum}  Total Fat : {this.calculate().fat_sum} </p>

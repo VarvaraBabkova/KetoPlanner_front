@@ -335,13 +335,25 @@ div.invisible{
 
 }
 
-.macros_div {
+div.macros_div {
   font-size: 10px;
   position: absolute;
   bottom: 20px;
-  left: 30%;
+  left: 25%;
+  font-size: 12px;
+
+}
+div.red{
+  color: var(--teal-color);
+      animation:blinkingText 2s infinite;
+
 }
 
+@keyframes blinkingText{
+    0%{     color: var(--teal-color);   }
+    50%{    color: transparent; }
+    100%{  color: var(--teal-color);    }
+}
 
 /******************************************************************************************************/
 /*******************************************  RECIPES  **************************************************/

@@ -31,7 +31,7 @@ export default class DayList extends React.Component{
 		  const scrolled = winScroll / height
 
 		//console.log('the scroll things',  scrolled)
-			if (scrolled === 1) {
+			if (scrolled > 0.7) {
 				this.setState({
 				    girl_visibility: false,
 				  })

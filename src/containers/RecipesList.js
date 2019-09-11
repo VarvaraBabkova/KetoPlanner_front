@@ -13,7 +13,11 @@ export default class RecipesList extends React.Component{
 	handleChosen = (recipe) => {
 		// console.log(recipe)
 		// console.log("is chosen")
-		this.props.handleChosen(recipe)
+		
+				this.props.handleChosen(recipe)
+
+			
+
 	}
 	handleFilter = (type) =>{
 		console.log(type)
@@ -44,9 +48,6 @@ export default class RecipesList extends React.Component{
 	render(){
 	
 		const filter_icon = `filter_icon ${(this.state.filter_menu)? "" : "invisible "} all`  
-		//let menu_invoke_btn = "filter_icon filter" 
-
-		console.log("FILTER MENU " + filter_icon)
 
 		return(
 			<div className="recipes_list clearfix">
@@ -70,7 +71,9 @@ export default class RecipesList extends React.Component{
 					this.state.recipes.map(recipe => <RecipeCard key = {recipe.name} 
 																recipe = {recipe}
 																show_recipes_add = {this.props.show_recipes_add}
-																handleChosen = {this.handleChosen}/>)
+																handleChosen = {this.handleChosen}
+																limit_for_today = {this.props.limit_for_today}
+																already_chosen={this.props.recipes.filter(r => r.chosen === true).length}/>)
 				}
 				
 			</div>

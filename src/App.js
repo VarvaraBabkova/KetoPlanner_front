@@ -18,6 +18,7 @@ export default  class App extends React.Component {
         recipes: [],
         show_recipes: false,
         show_recipes_add: false,
+        limit_for_today: 5,
         menu: "Home",
         edit_day:"",
         day_card_renew:0,
@@ -82,9 +83,12 @@ export default  class App extends React.Component {
 
   handleAdd = ( day) =>{
     
-
+   // console.log(day)
     if (!this.state.show_recipes_add){
-        this.setState({menu: "Recipes", show_recipes_add: true})
+      let edit_day = this.state.days.filter(d => d.days === day)
+      //console.log(edit_day[0])
+        this.setState({menu: "Recipes", show_recipes_add: true, 
+                      limit_for_today: 5 - edit_day[0].meals.length})
         this.setState({edit_day: day})
     }else{
         let chosen_recipes = this.state.recipes.filter(r => r.chosen === true)
@@ -224,7 +228,8 @@ export default  class App extends React.Component {
                             handleChangeView={this.changeView}
                             handleChosen={this.handleChosen}
                             handleAdd = {this.handleAdd}
-                            show_recipes_add = {this.state.show_recipes_add}/> 
+                            show_recipes_add = {this.state.show_recipes_add}
+                            limit_for_today = {this.state.limit_for_today}/> 
       case "Products":
           return <Products days = {this.state.days}/>
       case "About":
