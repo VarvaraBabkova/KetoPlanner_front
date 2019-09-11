@@ -9,7 +9,8 @@ export default class DayCard extends React.Component{
 
 	render(){
 	//console.log("inside card " + this.props.day.days)
-	//console.log(this.props.day.meals)
+	console.log(this.props.day_card_renew)
+	let renew = this.props.day_card_renew
 		return(
 			<div className={"day_card " + this.props.day.days} >
 				<h4>{this.props.day.days}</h4>

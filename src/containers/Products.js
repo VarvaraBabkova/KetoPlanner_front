@@ -17,12 +17,10 @@ export default class Products extends React.Component{
 			let num = full.filter(a => a ===arr[i]).length
 			arr_with_counts.push({count: num, value: arr[i]})
 		}
-		console.log(arr_with_counts)
 		return arr_with_counts;
 	}
 	render(){
-		//console.log(this.props)
-
+		
 		return(
 			<div className="products clearfix">
 				<div className = "product_girl"></div>

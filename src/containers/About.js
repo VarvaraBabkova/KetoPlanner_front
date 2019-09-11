@@ -3,7 +3,6 @@ import React from "react"
 export default class About extends React.Component{
 
 	render(){
-		//console.log("in about" + this.props)
 		return(
 			<div className="about clearfix">
 				<div className ="old_paper">

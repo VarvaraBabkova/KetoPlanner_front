@@ -12,8 +12,17 @@ export default class RecipeCard extends React.Component{
 
 
 		if (this.props.show_recipes_add){
-			this.setState({chosen: !this.state.chosen})
-			this.props.handleChosen(this.props.recipe)
+			console.log(this.props.limit_for_today)
+			console.log(this.props.already_chosen)
+
+			if (this.props.limit_for_today <= this.props.already_chosen) 
+				{
+					return null
+				}else{
+
+					this.setState({chosen: !this.state.chosen})
+					this.props.handleChosen(this.props.recipe)
+				}
 		}
 		
 		

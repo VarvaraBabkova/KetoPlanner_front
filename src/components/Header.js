@@ -8,7 +8,8 @@ export default class Header extends React.Component{
 
     this.state = {
       username:"Varvara",
-      password:"123456"
+      password:"123456",
+      form_button: "Log in"
     };
   }
 
@@ -30,16 +31,25 @@ preHandle = (e) =>{
   let usr = this.state.username
   let pwd = this.state.password
   if ((usr != "") && (pwd != ""))
-    this.props.handleLogin(this.state)
+  {
+
+  	    this.props.handleLogin(this.state)
+  	    this.setState({username:"", password:"", form_button:"Log out"})
+
+  }else{
+  	if (this.state.form_button === "Log out") {
+  		this.setState({username:"Varvara", password:"123456", form_button:"Log in"})
+  		//localStorage.removeItem('token');
+
+  	}
+  }
 }
 
 	render(){
 		//console.log(this.props)
 		 return(
-		 	<div>
-	 	{
-	 		
-	 	}
+		 <div>
+	 	
 				<div className="header">
 				 <div className="doily"></div>
 					<div className="login_form">
@@ -59,7 +69,7 @@ preHandle = (e) =>{
 					          </label>
 					        </div>
 					        <div>
-					          <button type="submit">Log in</button>
+					          <button type="submit">{this.state.form_button}</button>
 					        </div>
 					     </form>
 

@@ -31,7 +31,7 @@ export default class DayList extends React.Component{
 		  const scrolled = winScroll / height
 
 		//console.log('the scroll things',  scrolled)
-			if (scrolled === 1) {
+			if (scrolled > 0.7) {
 				this.setState({
 				    girl_visibility: false,
 				  })
@@ -49,6 +49,7 @@ export default class DayList extends React.Component{
 		console.log("In days List")
 		let girl_class = (this.state.girl_visibility)? "day_list_girl": "day_list_girl invisible"
 				console.log(girl_class)
+		console.log(this.props.day_card_renew)
 
 		 return(
 			<div className="days_list clearfix">
