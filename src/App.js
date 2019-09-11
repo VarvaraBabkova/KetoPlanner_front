@@ -121,15 +121,8 @@ export default  class App extends React.Component {
                                     console.log(this.state.days))
                                     return new_mealplan
                               })
-            
-
-
         }
-        
-
-        
-
-        }
+      }
   }
 
   fetch_delete(meal_id) {

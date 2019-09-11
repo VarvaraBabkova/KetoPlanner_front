@@ -7,6 +7,7 @@
   --lighter-beige-color: rgb(240, 230, 210);
   --coral-color: rgb(212, 90, 85);
   --green-color: rgb(139, 135, 88);
+  --beige-color:rgb(207, 200, 150);
 
 
 }
@@ -68,6 +69,10 @@ div.login_form {
         background-size: contain;
     background-position: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: "Ana's Rusty Typewriter", Times, serif;
+    text-align: right;
+    color: var(--dark-brown-color);
+    font-size: 15px;
 
 }
 
@@ -200,7 +205,7 @@ div.day_card.Sunday{
   padding: 15px 10px 15px 10px;
 }
 
-div.meal_item  {
+div.day_card .meal_item  {
   width: 70%;
   height: 45px;
   margin: 20px auto 10px auto;
@@ -215,6 +220,15 @@ div.meal_item  {
   padding: 5px;
 }
 
+div.meal_item .meal_item_macros p{
+  font-family: "Ana's Rusty Typewriter", Times, serif;
+    text-align: center;
+    color: var(--dark-brown-color);
+    font-size: 10px;
+    position: relative;
+    float: left;
+}
+
 div.meal_img {
   width: 30px;
   height: 30px;
@@ -224,6 +238,8 @@ div.meal_img {
   border-radius: 4px;
   overflow: hidden;
    object-fit: contain;
+
+   border: 2px solid var(--beige-color);
 
 }
 

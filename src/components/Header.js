@@ -39,6 +39,7 @@ preHandle = (e) =>{
   }else{
   	if (this.state.form_button === "Log out") {
   		this.setState({username:"Varvara", password:"123456", form_button:"Log in"})
+  		//localStorage.removeItem('token');
 
   	}
   }

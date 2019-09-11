@@ -10,8 +10,12 @@ export default class MealItem extends React.Component{
 			return (<div className="meal_item">
 		
 						<div className="meal_text"><i>{meal.name}</i></div>
+						
 						<div className="meal_img">
 							<img src={meal.img} height="30px" weight="30px"alt=""/>
+						</div>
+						<div className = "meal_item_macros">
+							<p>Cals: {meal.calories} Carbs: {meal.carbohydrates}</p>
 						</div>
 					 	<button onClick={() => this.props.handleDelete(this.props.meal, this.props.meal_id, this.props.day)} className="delete_item_btn"> </button>
 					
